@@ -1374,10 +1374,10 @@ binary-extensions@^2.0.0:
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.2.0.tgz#75f502eeaf9ffde42fc98829645be4ea76bd9e2d"
   integrity sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==
 
-biotech-js@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/biotech-js/-/biotech-js-1.0.8.tgz#88dac58f4191ba85141a91e222670c39ff0237ac"
-  integrity sha512-SQxealSrQHobNQ49GFV7YhZV9/mQTXwdux9q63pG0VNy3wHMn9D4sb4Ag9WBUuwhiR0VYqflqXBUE/TkJOwEfQ==
+biotech-js@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/biotech-js/-/biotech-js-1.0.10.tgz#bce617f659663afc9dfe7a312e160503893e2737"
+  integrity sha512-q6uOWjia6R39ZBrF13sNuyxPvWQK8hX62/lIUG2Yhl7DlGWbwlibwpqtR3fvxH9w1hgrPKKUDD6/K1Hg2tWuQA==
 
 bl@^4.1.0:
   version "4.1.0"

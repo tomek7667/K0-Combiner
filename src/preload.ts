@@ -22,9 +22,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	ipcRenderer.send("getAppVersion");
 
 	ipcRenderer.on("appVersion", (event, appVersion) => {
-		document.getElementById(
-			"title"
-		).innerText = `examplename ${appVersion}`;
+		document.getElementById("title").innerText = `K0 Combiner ${appVersion}`;
 	});
 
 	ipcRenderer.on("run", (event, args) => {
