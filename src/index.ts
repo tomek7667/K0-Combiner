@@ -1,6 +1,7 @@
 import { app, BrowserWindow, dialog, ipcMain, shell } from "electron";
 import path from "path";
-let win: any;
+import { run } from "./lib";
+let win: BrowserWindow;
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 
@@ -61,7 +62,7 @@ ipcMain.on("selectFolders", (event) => {
 
 ipcMain.on("selectOutputFolder", (event) => {
 	const outputFolder = dialog.showOpenDialogSync(win, {
-		properties: ["openDirectory"],
+		properties: ["openDirectory", "createDirectory"],
 		message: "Select output folder",
 		buttonLabel: "Select",
 		title: "Select output folder",
@@ -83,7 +84,15 @@ ipcMain.on("openFolder", (event, { folder }) => {
 });
 
 ipcMain.on("run", async (event, { folders, outputFolder }) => {
-	return event.sender.send("run", {
-		success: true,
-	});
+	try {
+		await run(folders, outputFolder);
+		return event.sender.send("run", {
+			success: true,
+		});
+	} catch (err) {
+		return event.sender.send("run", {
+			success: false,
+			errorMessage: err?.message ?? err?.toString() ?? "Something went wrong!",
+		});
+	}
 });

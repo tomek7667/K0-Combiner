@@ -21,7 +21,7 @@ export const unblockElement = (element: HTMLElement) => {
 const getSelectedFoldersHTML = (folders: string[]) => {
 	return `
 	<div>Selected folders</div>
-	<ul>
+	<ul style="width: 100%;">
 		${folders.map((folder) => `<li><code>${folder}</code></li>`).join("")}
 	</ul>
 	`;
