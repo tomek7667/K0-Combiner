@@ -11,20 +11,13 @@
 					<h1 id="title">K0 Combiner</h1>
 					<h2>author: Tomasz Dąbrowski</h2>
 					<hr />
-					<div class="file">
-						<label class="file-label">
-							<input
-								class="file-input"
-								type="file"
-								id="sequence-file-input" />
-							<span class="file-cta">
-								<span class="file-label"
-									>Select the input file</span
-								>
-							</span>
-						</label>
+					<div>
+						<button class="button is-primary" id="button-select-folders">Select folders</button>
+						<button class="button is-warning" id="button-select-output-folder">Select output folder</button>
+						<span id="span-output-folder"></span>
 					</div>
-					<span id="sequence-file-label"></span>
+					<br/>
+					<div class="content box" id="folders-content" style="display: none;"></div>
 				</div>
 			</div>
 		</div>
