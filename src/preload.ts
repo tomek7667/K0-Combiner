@@ -43,6 +43,8 @@ window.addEventListener("DOMContentLoaded", () => {
 	);
 	const divOutputFolder = document.getElementById("span-output-folder");
 
+	const buttonRun = document.getElementById("button-run");
+
 	ipcRenderer.send("getAppVersion");
 	ipcRenderer.on("appVersion", (event, appVersion) => {
 		document.getElementById("title").innerText = `K0 Combiner ${appVersion}`;
@@ -91,10 +93,27 @@ window.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 
+	buttonRun.addEventListener("click", () => {
+		if (!folders.length) {
+			alert("No folders selected");
+			return;
+		}
+		if (!outputFolder || outputFolder === "") {
+			alert("No output folder selected");
+			return;
+		}
+		blockElement(buttonRun);
+		blockElement(buttonSelectFolders);
+		blockElement(buttonSelectOutputFolder);
+		ipcRenderer.send("run", { folders, outputFolder });
+	});
 	ipcRenderer.on("run", (event, args) => {
 		const { success, errorMessage } = args;
 		if (!success && errorMessage) {
 			alert(errorMessage);
 		}
+		unblockElement(buttonRun);
+		unblockElement(buttonSelectFolders);
+		unblockElement(buttonSelectOutputFolder);
 	});
 });

@@ -81,3 +81,9 @@ ipcMain.on("selectOutputFolder", (event) => {
 ipcMain.on("openFolder", (event, { folder }) => {
 	shell.openPath(folder);
 });
+
+ipcMain.on("run", async (event, { folders, outputFolder }) => {
+	return event.sender.send("run", {
+		success: true,
+	});
+});
